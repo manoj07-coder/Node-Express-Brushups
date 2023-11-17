@@ -5,14 +5,10 @@ const connectDB =require('./db/connect')
 const bodyParser = require('body-parser')
 require('dotenv').config()
 
-
+app.use(express.static('./public'))
 app.use(express.json())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-app.get('/',(req,res)=>{
-    res.send('Task Manager app')
-})
 
 app.use('/api/v1/tasks/',tasks)
 
